@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gothi Hjortarvé Eikvarðr | Gothi of Otago</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fondamento&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --forest-dark: #0f1412; 
+            --storm-grey: #243137;  
+            --silver-mist: #a6adad; 
+            --silver-bright: #d1d9d9; 
+            --lightning-dim: #4a5d5e;
+            --text-light: #e0e0e0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--forest-dark);
+            background-image: 
+                linear-gradient(rgba(15, 20, 18, 0.92), rgba(15, 20, 18, 0.96)),
+                url('https://www.transparenttextures.com/patterns/dark-wood.png');
+            color: var(--text-light);
+            font-family: 'Lora', serif;
+            line-height: 1.8;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Fondamento', cursive;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--silver-bright);
+            text-shadow: 2px 2px 0px #000, 0px 0px 8px rgba(209, 217, 217, 0.3);
+            margin-bottom: 1.5rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 30px;
+        }
+
+        header {
+            background: rgba(15, 20, 18, 0.98);
+            border-bottom: 1px solid var(--lightning-dim);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { font-size: 1.5rem; color: var(--silver-bright); text-decoration: none; font-family: 'Fondamento'; }
+
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 30px; }
+        nav ul li a { 
+            color: var(--silver-mist); 
+            text-decoration: none; 
+            font-family: 'Fondamento';
+            font-size: 1.1rem;
+            transition: 0.3s ease; 
+        }
+        nav ul li a:hover { color: var(--silver-bright); text-shadow: 0 0 10px var(--silver-mist); }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 120px 0;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .hero-text { flex: 1.5; min-width: 320px; }
+        .hero-text h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 2rem; border-left: 5px solid var(--silver-mist); padding-left: 25px; }
+        .hero-text p { font-size: 1.15rem; font-style: italic; color: var(--silver-mist); }
+
+        .hero-image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            border: 1px solid var(--silver-mist);
+            filter: grayscale(40%) contrast(1.1) brightness(0.8);
+            transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hero-image-container img:hover { filter: grayscale(0%) brightness(1); transform: scale(1.02); }
+
+        .divider { text-align: center; margin: 80px 0; color: var(--lightning-dim); opacity: 0.4; }
+
+        .services { padding: 100px 0; background: rgba(36, 49, 55, 0.15); }
+        .services h2 { text-align: center; font-size: 2.5rem; margin-bottom: 4rem; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            background: rgba(15, 20, 18, 0.8);
+            padding: 50px 40px;
+            border: 1px solid var(--lightning-dim);
+            outline: 1px solid rgba(166, 173, 173, 0.1);
+            outline-offset: -15px;
+            transition: 0.4s;
+            position: relative;
+        }
+        .card::before {
+            content: "ᚦ";
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: var(--lightning-dim);
+            font-size: 1.2rem;
+            opacity: 0.5;
+        }
+        .card:hover { border-color: var(--silver-bright); background: rgba(36, 49, 55, 0.4); transform: translateY(-8px); }
+        .card h3 { color: var(--silver-bright); font-size: 1.6rem; }
+        .card p { font-size: 1rem; color: var(--text-light); }
+
+        .contact { padding: 120px 0; text-align: center; max-width: 800px; margin: auto; }
+        .contact h2 { font-size: 2.5rem; }
+        .contact p { margin-bottom: 20px; font-size: 1.1rem; }
+        .contact a { 
+            color: var(--silver-bright); 
+            text-decoration: none; 
+            font-size: 1.5rem; 
+            font-family: 'Fondamento'; 
+            display: block; 
+            margin: 10px 0;
+            transition: 0.3s;
+        }
+        .contact a:hover { text-shadow: 0 0 15px var(--silver-bright); color: #fff; }
+
+        footer {
+            text-align: center;
+            padding: 80px 0;
+            background: #070a09;
+            color: var(--lightning-dim);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--storm-grey);
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .hero { flex-direction: column-reverse; text-align: center; padding: 60px 0; }
+            .hero-text h1 { font-size: 2.5rem; border-left: none; border-bottom: 3px solid var(--silver-mist); padding: 0 0 20px 0; }
+            nav { flex-direction: column; gap: 20px; }
+            nav ul li { margin: 0 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Hjortarvé Eikvarðr</a>
+                <ul>
+                    <li><a href="#about">The Path</a></li>
+                    <li><a href="#services">The Work</a></li>
+                    <li><a href="#contact">Inquiry</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="container hero" id="about">
+        <div class="hero-text">
+            <h1>Gothi of Otago</h1>
+            <p>In the shadows of the southern peaks, where the salt of the Pacific meets the breath of the pine, the old ways endure. I am Hjortarvé Eikvarðr, Gothi of the Otago region.</p>
+            <br>
+            <p style="font-style: normal; color: var(--text-light);">My work is not merely an echo of the past, but a living practice—grounded in the historical integrity of Old Norse sources and the unwavering ethics of the ancestors. Here, we honor the High Ones, the Vaettir of this land, and the spirits of those who came before us.</p>
+        </div>
+        <div class="hero-image-container">
+            <img src="hjort.jpg" alt="Portrait of Gothi Hjortarvé Eikvarðr">
+        </div>
+    </section>
+
+    <div class="divider">
+        <svg width="120" height="24" viewBox="0 0 120 24" fill="none" stroke="currentColor">
+            <path d="M0 12H45L60 2L75 12H120" stroke-width="1"/>
+            <rect x="56" y="8" width="8" height="8" transform="rotate(45 60 12)" fill="currentColor"/>
+        </svg>
+    </div>
+
+    <section class="services" id="services">
+        <div class="container">
+            <h2>The Sacred Rites</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Spiritual Counsel</h3>
+                    <p>Wisdom is the bridge between impulse and honor. Drawing from the stanzas of the Hávamál and the sagas of the North, I provide traditional guidance for those navigating the complexities of the modern world. We explore Frith, Örlög, and the virtues through the lens of the lore.</p>
+                </div>
+                <div class="card">
+                    <h3>Lifecycle Rites</h3>
+                    <p>The threads of life are woven in the presence of the community and the Gods. I conduct Rites of Passage—including Namings, Handfastings, and Funeral Rites—with solemnity and historical fidelity, ensuring each transition is marked with silver-bright intent.</p>
+                </div>
+                <div class="card">
+                    <h3>Blót & Sumbel</h3>
+                    <p>Ritual is the heartbeat of the tradition. Through the Blót, we hallow the seasons and maintain the cycle of gift-for-a-gift. In the Sumbel, we raise the horn to toast the Gods, the heroes, and our kin, weaving our words into the well of Wyrd beneath the forest boughs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container contact" id="contact">
+        <h2>The Door is Open</h2>
+        <p>The door to the hall is open to those who seek with a sincere heart. Whether you require a ritual to hallow a new home, a ceremony to mark a milestone, or counsel beneath the boughs, reach out to discuss the path ahead.</p>
+        <div style="margin-top: 40px;">
+            <a href="mailto:steventhomas678@gmail.com">steventhomas678@gmail.com</a>
+            <a href="tel:0225350399">022 535 0399</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>MOSGIEL, DUNEDIN | OTAGO, NEW ZEALAND</p>
+        <p style="margin-top: 10px; opacity: 0.6;">&copy; 2026 HJORTARVÉ EIKVARÐR. ALL RITES OBSERVED.</p>
+    </footer>
+
+</body>
+</html>
